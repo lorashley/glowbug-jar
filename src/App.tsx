@@ -28,7 +28,7 @@ function App() {
 
   return (
     <Outer>
-      <H1 color={theme.colors.tertiary}>My Glowbugs</H1>
+      <H1 color={theme.colors.tertiary}>Glowbugs</H1>
       <Jar bugs={bugs} removeBug={removeBug} />
       <ButtonsOuter>
         {' '}
