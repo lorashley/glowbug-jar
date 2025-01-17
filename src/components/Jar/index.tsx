@@ -1,7 +1,6 @@
 import React from 'react'
-import Glowbug from '../Glowbug'
 import { Glowbug as GlowbugType } from '../Glowbug/types'
-import { Outer } from './styled'
+import { GlassJar, Glowbug, Outer } from './styled'
 
 type Props = {
   bugs: GlowbugType[]
@@ -11,6 +10,7 @@ type Props = {
 const Jar = ({ bugs, removeBug }: Props) => {
   return (
     <Outer>
+      <GlassJar /> {/* Ensure this is rendered first */}
       {bugs.map((bug) => (
         <Glowbug key={bug.id} bug={bug} onClick={() => removeBug(bug.id)} />
       ))}
