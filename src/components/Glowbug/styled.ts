@@ -1,24 +1,29 @@
 import styled from 'styled-components'
 import { GlowbugKind } from './types'
+import { baseColors } from '@/system/colors'
 
 const getColor = (kind?: GlowbugKind) => {
   switch (kind) {
     case GlowbugKind.PEE:
-      return 'yellow'
+      return baseColors.yellow
     case GlowbugKind.LOVE:
-      return 'red'
+      return baseColors.red
     case GlowbugKind.POOP:
-      return 'brown'
+      return baseColors.brown
     case GlowbugKind.STAR:
-      return 'white'
+      return baseColors.mint
     default:
-      return 'white'
+      return baseColors.white
   }
 }
 
-const GlowingBug = styled.div<{ $kind?: GlowbugKind }>`
-  width: 50px;
-  height: 50px;
+const GlowingBug = styled.div<{
+  $kind?: GlowbugKind
+  $animation?: string
+  $keyframesRule?: string
+}>`
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background-color: ${({ $kind }) => getColor($kind)};
   box-shadow: 0 0 10px 5px ${({ $kind }) => getColor($kind)};
@@ -35,6 +40,30 @@ const GlowingBug = styled.div<{ $kind?: GlowbugKind }>`
       box-shadow: 0 0 10px 5px ${({ $kind }) => getColor($kind)};
     }
   }
+
+  @keyframes floating {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    25% {
+      transform: translate3d(30px, -30px, 0);
+    }
+    50% {
+      transform: translate3d(-20px, 20px, 0);
+    }
+    75% {
+      transform: translate3d(50px, 10px, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  // Combine both animations (glow and floating) into a single animation
+  animation: ${({ $animation }) =>
+    `${$animation} 4s infinite ease-in-out, glow 1.5s infinite ease-in-out`};
+
+  ${({ $keyframesRule }) => $keyframesRule}
 `
 
 export default GlowingBug
