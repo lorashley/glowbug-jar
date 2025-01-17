@@ -4,6 +4,9 @@ import JarInput from './components/JarInput'
 import { Glowbug } from './components/Glowbug/types'
 import React from 'react'
 import { Outer } from './styled'
+import { H1 } from './system/Headings'
+import { theme } from './system/theme'
+import { Text } from '@chakra-ui/react'
 
 function App() {
   const [bugs, setBugs] = useState<Glowbug[]>([])
@@ -24,10 +27,12 @@ function App() {
 
   return (
     <Outer>
-      <h1>My Glowbugs</h1>
-      <JarInput addBug={addBug} />
+      <H1 color={theme.colors.tertiary}>My Glowbugs</H1>
       <Jar bugs={bugs} removeBug={removeBug} />
-      <p>Bug count: {bugs.length}</p>
+      <JarInput addBug={addBug} />
+      <Text textStyle="md" color={theme.colors.lightText}>
+        Bug count: {bugs.length}
+      </Text>
     </Outer>
   )
 }

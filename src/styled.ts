@@ -8,5 +8,5 @@ export const Outer = styled.div`
   height: 100vh;
   width: 100vw;
 
-  background-color: #005f73;
+  background-color: ${({ theme }) => theme.colors.background};
 `
