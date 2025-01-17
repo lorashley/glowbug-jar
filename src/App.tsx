@@ -3,6 +3,7 @@ import Jar from './components/Jar'
 import JarInput from './components/JarInput'
 import { Glowbug } from './components/Glowbug/types'
 import React from 'react'
+import { Outer } from './styled'
 
 function App() {
   const [bugs, setBugs] = useState<Glowbug[]>([])
@@ -22,12 +23,12 @@ function App() {
   }, [])
 
   return (
-    <div className="app">
+    <Outer>
       <h1>My Glowbugs</h1>
       <JarInput addBug={addBug} />
       <Jar bugs={bugs} removeBug={removeBug} />
       <p>Bug count: {bugs.length}</p>
-    </div>
+    </Outer>
   )
 }
 
