@@ -1,69 +1,96 @@
 import styled from 'styled-components'
-import { GlowbugKind } from './types'
-import { baseColors } from '@/system/colors'
 
-const getColor = (kind?: GlowbugKind) => {
-  switch (kind) {
-    case GlowbugKind.PEE:
-      return baseColors.yellow
-    case GlowbugKind.LOVE:
-      return baseColors.red
-    case GlowbugKind.POOP:
-      return baseColors.brown
-    case GlowbugKind.STAR:
-      return baseColors.mint
-    default:
-      return baseColors.white
-  }
-}
-
-const GlowingBug = styled.div<{
-  $kind?: GlowbugKind
-  $animation?: string
-  $keyframesRule?: string
+export const GlowingBug = styled.div<{
+  $uniqueId: string // for animations
+  $isHeart?: boolean
+  $color: string
+  $randomX: number
+  $randomY: number
+  $xPath: number
+  $yPath: number
 }>`
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background-color: ${({ $kind }) => getColor($kind)};
-  box-shadow: 0 0 10px 5px ${({ $kind }) => getColor($kind)};
-  animation: glow 1.5s ease-in-out infinite;
+  position: absolute; /* Absolute positioning for random movement */
+  top: ${({ $randomY }) => `${$randomY}px`};
+  left: ${({ $randomX }) => `${$randomX}px`};
 
-  @keyframes glow {
-    0% {
-      box-shadow: 0 0 10px 5px ${({ $kind }) => getColor($kind)};
-    }
-    50% {
-      box-shadow: 0 0 20px 15px ${({ $kind }) => getColor($kind)};
-    }
-    100% {
-      box-shadow: 0 0 10px 5px ${({ $kind }) => getColor($kind)};
-    }
-  }
+  /* Heart shape specific styles */
+  ${({ $isHeart, $color }) =>
+    $isHeart &&
+    `
+      width: 25px;
+      height: 25px;
+      background-color: ${$color};
+      box-shadow: 0 0 10px 5px ${$color};
+      transform: translate(-50%, -50%) rotate(-45deg); /* Center and rotate for heart shape */
+      border-radius: 50% 50% 0 0; /* Top rounded corners for heart shape */
 
-  @keyframes floating {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    25% {
-      transform: translate3d(30px, -30px, 0);
-    }
-    50% {
-      transform: translate3d(-20px, 20px, 0);
-    }
-    75% {
-      transform: translate3d(50px, 10px, 0);
-    }
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-  }
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: ${$color};
+        border-radius: 50%;
+      }
 
-  // Combine both animations (glow and floating) into a single animation
-  animation: ${({ $animation }) =>
-    `${$animation} 4s infinite ease-in-out, glow 1.5s infinite ease-in-out`};
+      &::before {
+        top: -12.5px;
+        left: 0;
+      }
 
-  ${({ $keyframesRule }) => $keyframesRule}
+      &::after {
+        top: 0;
+        left: 12.5px;
+      }
+    `}
+
+  /* Circle shape (default if $isHeart is not true) */
+  ${({ $isHeart, $color }) =>
+    !$isHeart &&
+    `
+      width: 25px;
+      height: 25px;
+      background-color: ${$color};
+      box-shadow: 0 0 10px 5px ${$color};
+      border-radius: 50%; /* Ensures a perfect circle */
+    `}
+
+  animation: ${({ $uniqueId }) =>
+    `floating-${$uniqueId} 10s infinite ease-in-out, glow-${$uniqueId} 1.5s infinite ease-in-out`};
+
+  ${({ $color, $uniqueId, $xPath, $yPath }) => `
+    @keyframes glow-${$uniqueId} {
+      0% {
+        box-shadow: 0 0 5px 5px ${$color};
+      }
+      25% {
+        box-shadow: 0 0 10px 5px ${$color};
+      }
+      50% {
+        box-shadow: 0 0 20px 15px ${$color};
+      }
+      100% {
+        box-shadow: 0 0 10px 5px ${$color};
+      }
+    }
+
+@keyframes floating-${$uniqueId} {
+      0% {
+        transform: translate(-50%, -50%) translate3d(0, 0, 0);
+      }
+      25% {
+        transform: translate(-50%, -50%) translate3d(${$xPath * 30}px, ${$yPath * -30}px, 0);
+      }
+      50% {
+        transform: translate(-50%, -50%) translate3d(${$xPath * -20}px, ${$yPath * 20}px, 0);
+      }
+      75% {
+        transform: translate(-50%, -50%) translate3d(${$xPath * 50}px, ${$yPath * 10}px, 0);
+      }
+      100% {
+        transform: translate(-50%, -50%) translate3d(0, 0, 0);
+      }
+    }
+  `}
 `
-
-export default GlowingBug

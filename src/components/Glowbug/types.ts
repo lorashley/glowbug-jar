@@ -5,7 +5,7 @@ export interface Glowbug {
 
 export enum GlowbugKind {
   PEE = 'PEE',
-  POOP = 'POOP',
+  POO = 'POO',
   LOVE = 'LOVE',
   STAR = 'STAR',
 }

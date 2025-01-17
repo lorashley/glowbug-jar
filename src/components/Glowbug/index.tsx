@@ -1,7 +1,11 @@
 import React, { useMemo } from 'react'
-import GlowingBug from './styled'
 import type { Glowbug } from './types'
-import { getRandomFloatAnimation } from './utils'
+import { GlowingBug } from './styled'
+import {
+  getGlowbugColor,
+  getRandomCoordinates,
+  getRandomDirectionPair,
+} from './utils'
 
 type Props = {
   bug: Glowbug
@@ -9,13 +13,18 @@ type Props = {
 }
 
 const Glowbug = ({ bug, onClick }: Props) => {
-  const floatAnimation = useMemo(() => getRandomFloatAnimation(), [])
-
+  const [x, y] = useMemo(() => getRandomCoordinates(), [bug.id])
+  const [xPath, yPath] = useMemo(() => getRandomDirectionPair(), [bug.id])
+  const color = useMemo(() => getGlowbugColor(bug.kind), [bug.kind])
   return (
     <GlowingBug
-      $kind={bug.kind}
-      $animation={`floatBug${bug.id}`}
-      $keyframesRule={`@keyframes floatBug${bug.id} { ${floatAnimation} }`}
+      $uniqueId={bug.id}
+      $isHeart={bug.kind === 'LOVE'}
+      $color={color}
+      $randomX={x}
+      $randomY={y}
+      $xPath={xPath}
+      $yPath={yPath}
       onClick={onClick}
     />
   )
