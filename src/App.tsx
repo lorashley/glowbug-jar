@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback } from 'react'
 import Jar from './components/Jar'
 import AddBugButton from './components/AddBugButton'
 import { Glowbug } from './components/Glowbug/types'
@@ -7,12 +7,7 @@ import { H1 } from './system/Headings'
 import { theme } from './system/theme'
 import { GlowbugKindArray } from './components/Glowbug/utils'
 import useLocalStorage from './hooks/useLocalStorage'
-import {
-  StatRoot,
-  StatLabel,
-  StatValueText,
-  StatValueUnit,
-} from '@/components/ui/stat'
+import Stats from './components/Stats'
 
 function App() {
   const [bugs, setBugs] = useLocalStorage<Glowbug[]>('glowbugs', [])
@@ -32,7 +27,7 @@ function App() {
   )
 
   const bugsCount = bugs.length
-  const percentage = useMemo(() => (bugsCount / goal) * 100, [bugsCount, goal])
+
   return (
     <Outer>
       <H1 color={theme.colors.tertiary}>Glowbugs</H1>
@@ -43,15 +38,7 @@ function App() {
           <AddBugButton key={kind} addBug={addBug} kind={kind} />
         ))}
       </ButtonsOuter>
-
-      <StatRoot color={theme.colors.tertiary}>
-        <StatLabel color={theme.colors.tertiary}>You've caught</StatLabel>
-
-        <StatValueText alignItems="baseline">
-          {bugsCount}{' '}
-          <StatValueUnit color={theme.colors.tertiary}>bugs</StatValueUnit>
-        </StatValueText>
-      </StatRoot>
+      <Stats bugsCount={bugsCount} goal={goal} />
     </Outer>
   )
 }
