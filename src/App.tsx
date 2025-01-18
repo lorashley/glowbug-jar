@@ -39,8 +39,12 @@ function App() {
           <AddBugButton key={kind} addBug={addBug} kind={kind} />
         ))}
       </ButtonsOuter>
+
+      <SecondaryButton onClick={clearBugs} disabled={bugsCount === 0}>
+        Release the bugs
+      </SecondaryButton>
+
       <Stats bugsCount={bugsCount} goal={goal} />
-      <SecondaryButton onClick={clearBugs}>Clear all bugs</SecondaryButton>
     </Outer>
   )
 }

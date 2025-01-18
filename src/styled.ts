@@ -7,7 +7,7 @@ export const Outer = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100vw;
-  gap: 20px;
+  gap: 10px;
 
   background-color: ${({ theme }) => theme.colors.background};
 `
