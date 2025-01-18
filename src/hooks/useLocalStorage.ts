@@ -15,7 +15,8 @@ const useLocalStorage = <T>(
 
   const clearLocalStorage = useCallback(() => {
     localStorage.removeItem(key)
-  }, [key])
+    setValue(initialValue)
+  }, [initialValue, key])
 
   return [value, setValue, clearLocalStorage]
 }
