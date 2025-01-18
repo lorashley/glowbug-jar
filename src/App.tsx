@@ -3,12 +3,12 @@ import Jar from './components/Jar'
 import AddBugButton from './components/AddBugButton'
 import { Glowbug } from './components/Glowbug/types'
 import { ButtonsOuter, Outer } from './styled'
-import { H1 } from './system/Headings'
-import { theme } from './system/theme'
+
 import { GlowbugKindArray } from './components/Glowbug/utils'
 import useLocalStorage from './hooks/useLocalStorage'
 import Stats from './components/Stats'
 import { SecondaryButton } from './system/Buttons'
+import NavigationBar from './components/NavigationBar'
 
 function App() {
   const [bugs, setBugs, clearBugs] = useLocalStorage<Glowbug[]>('glowbugs', [])
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <Outer>
-      <H1 color={theme.colors.tertiary}>Glowbugs</H1>
+      <NavigationBar />
       <Jar bugs={bugs} removeBug={removeBug} />
       <ButtonsOuter>
         {' '}
