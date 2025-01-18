@@ -1,7 +1,7 @@
-import { theme } from '@/system/theme'
 import { StatRoot, StatLabel, StatValueText, StatValueUnit } from './ui/stat'
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { ProgressBar, ProgressRoot, ProgressValueText } from './ui/progress'
+import { Box } from '@chakra-ui/react/box'
 
 type Props = {
   bugsCount: number
@@ -14,18 +14,20 @@ const Stats = ({ bugsCount, goal }: Props) => {
     [bugsCount, goal]
   )
   return (
-    <StatRoot color={theme.colors.tertiary}>
-      <StatLabel color={theme.colors.tertiary}>You've caught</StatLabel>
-      <StatValueText alignItems="baseline">
-        {`${bugsCount} `}
-        <StatValueUnit color={theme.colors.tertiary}>bugs of</StatValueUnit>
-        {` ${goal}`}
-      </StatValueText>
-      <ProgressRoot width={'xs'} value={percentage} colorPalette={'orange'}>
-        <ProgressBar color={theme.colors.tertiary} />
-        <ProgressValueText>{percentage}%</ProgressValueText>
-      </ProgressRoot>
-    </StatRoot>
+    <Box bg={'wheat'} p={4} borderRadius={8}>
+      <StatRoot>
+        <StatLabel>You've caught</StatLabel>
+        <StatValueText alignItems="baseline">
+          {`${bugsCount} `}
+          <StatValueUnit>bugs of</StatValueUnit>
+          {` ${goal}`}
+        </StatValueText>
+        <ProgressRoot width={'xs'} value={percentage} colorPalette={'orange'}>
+          <ProgressBar />
+          <ProgressValueText>{percentage}%</ProgressValueText>
+        </ProgressRoot>
+      </StatRoot>
+    </Box>
   )
 }
 
