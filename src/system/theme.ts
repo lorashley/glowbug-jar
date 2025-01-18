@@ -1,4 +1,5 @@
 import { baseColors } from './colors'
+import '@fontsource/rum-raisin/400.css'
 
 export const theme = {
   colors: {
@@ -12,5 +13,8 @@ export const theme = {
     warning: baseColors.yellow,
     success: baseColors.brightGreen,
     info: baseColors.purple,
+  },
+  fonts: {
+    heading: 'Rum Raisin, Arial, sans-serif',
   },
 }
