@@ -8,9 +8,10 @@ import { theme } from './system/theme'
 import { GlowbugKindArray } from './components/Glowbug/utils'
 import useLocalStorage from './hooks/useLocalStorage'
 import Stats from './components/Stats'
+import { SecondaryButton } from './system/Buttons'
 
 function App() {
-  const [bugs, setBugs] = useLocalStorage<Glowbug[]>('glowbugs', [])
+  const [bugs, setBugs, clearBugs] = useLocalStorage<Glowbug[]>('glowbugs', [])
   const goal = 20
   const addBug = useCallback(
     (bug: Glowbug) => {
@@ -39,6 +40,7 @@ function App() {
         ))}
       </ButtonsOuter>
       <Stats bugsCount={bugsCount} goal={goal} />
+      <SecondaryButton onClick={clearBugs}>Clear all bugs</SecondaryButton>
     </Outer>
   )
 }
