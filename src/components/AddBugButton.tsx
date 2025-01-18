@@ -10,7 +10,7 @@ type Props = {
   addBug: (bug: Glowbug) => void
   kind?: GlowbugKind
 }
-function AddBugButton({ addBug, kind = GlowbugKind.PEE }: Props) {
+function AddBugButton({ addBug, kind = GlowbugKind.STAR }: Props) {
   const onButtonClick = useCallback(() => {
     addBug({
       id: uuidv4(),
