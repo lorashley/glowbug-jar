@@ -11,14 +11,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { PrimaryButton } from '@/system/Buttons'
-import { Button } from '../ui/button'
+import { StyledButton } from '@/system/Buttons'
 import { NumberInputField, NumberInputRoot } from '../ui/number-input'
 import { Field } from '../ui/field'
 import { useCallback, useState } from 'react'
 import { useSettingsContext } from './SettingsContext'
+import { useTheme } from 'styled-components'
 
 const Settings = () => {
+  const theme = useTheme()
   const { goal, setGoal } = useSettingsContext()
   const title = 'Settings'
 
@@ -32,16 +33,16 @@ const Settings = () => {
     <HStack>
       <DialogRoot size={'md'}>
         <DialogTrigger asChild>
-          <PrimaryButton variant="outline">
+          <StyledButton variant="primary">
             <IoSettingsSharp />
             {title}
-          </PrimaryButton>
+          </StyledButton>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent backgroundColor={theme.colors.background}>
           <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
+            <DialogTitle color={theme.colors.darkText}>{title}</DialogTitle>
           </DialogHeader>
-          <DialogBody>
+          <DialogBody color={theme.colors.darkText}>
             <Field
               label="Enter Glowbug Goal"
               helperText="Enter a number between 10 and 100, default is 10"
@@ -57,9 +58,11 @@ const Settings = () => {
             </Field>
             <DialogFooter>
               <DialogActionTrigger asChild>
-                <Button variant="outline">Cancel</Button>
+                <StyledButton variant="secondary">Cancel</StyledButton>
               </DialogActionTrigger>
-              <Button onClick={onSave}>Save</Button>
+              <DialogActionTrigger asChild>
+                <StyledButton onClick={onSave}>Save</StyledButton>
+              </DialogActionTrigger>
             </DialogFooter>
             <DialogCloseTrigger />
           </DialogBody>

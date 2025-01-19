@@ -1,10 +1,9 @@
 import { useCallback } from 'react'
 import { Glowbug, GlowbugKind } from './Glowbug/types'
-import { getGlowbugColor } from './Glowbug/utils'
 import { v4 as uuidv4 } from 'uuid'
 import React from 'react'
 import { HStack } from '@chakra-ui/react'
-import { PrimaryButton } from '@/system/Buttons'
+import { StyledButton } from '@/system/Buttons'
 
 type Props = {
   addBug: (bug: Glowbug) => void
@@ -22,12 +21,9 @@ function AddBugButton({ addBug, kind = GlowbugKind.STAR }: Props) {
 
   return (
     <HStack>
-      <PrimaryButton
-        backgroundColor={getGlowbugColor(kind)}
-        onClick={onButtonClick}
-      >
+      <StyledButton variant={'primary'} onClick={onButtonClick}>
         Add {formattedName}bug
-      </PrimaryButton>
+      </StyledButton>
     </HStack>
   )
 }

@@ -5,12 +5,17 @@ export const BaseButton = styled(Button)`
   border-radius: 25px;
 `
 
-export const PrimaryButton = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.colors.primary};
-  color: ${({ theme }) => theme.colors.lightText};
-`
+export const StyledButton = styled(BaseButton)<{
+  variant?: 'primary' | 'secondary'
+}>`
+  background-color: ${({ theme, variant }) =>
+    theme.buttons[variant || 'primary'].backgroundColor};
+  color: ${({ theme, variant }) => theme.buttons[variant || 'primary'].color};
+  font-weight: ${({ theme, variant }) =>
+    theme.buttons[variant || 'primary'].fontWeight};
 
-export const SecondaryButton = styled(BaseButton)`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.lightText};
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.tan};
+    color: ${({ theme }) => theme.colors.offWhite};
+  }
 `

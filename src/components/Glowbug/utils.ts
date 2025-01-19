@@ -19,13 +19,13 @@ export const getRandomDirectionPair = () => {
 export const getGlowbugColor = (kind?: GlowbugKind) => {
   switch (kind) {
     case GlowbugKind.LOVE:
-      return baseColors.red
+      return baseColors.warmPink
     case GlowbugKind.POTTY:
-      return baseColors.brightGreen
+      return baseColors.warmYellow
     case GlowbugKind.STAR:
-      return baseColors.yellow
+      return baseColors.lightYellow
     default:
-      return baseColors.white
+      return baseColors.appBlue
   }
 }
 
