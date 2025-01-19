@@ -10,7 +10,7 @@ type Props = {
 
 const Stats = ({ bugsCount, goal }: Props) => {
   const percentage = useMemo(
-    () => Math.floor((bugsCount / goal) * 100),
+    () => Math.min(Math.floor((bugsCount / goal) * 100), 100),
     [bugsCount, goal]
   )
   return (
