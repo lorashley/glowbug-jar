@@ -15,8 +15,10 @@ import { PrimaryButton } from '@/system/Buttons'
 import { Button } from '../ui/button'
 import { NumberInputField, NumberInputRoot } from '../ui/number-input'
 import { Field } from '../ui/field'
+import { useSettingsContext } from './SettingsContext'
 
 const Settings = () => {
+  const { goal, setGoal } = useSettingsContext()
   const title = 'Settings'
   return (
     <HStack>

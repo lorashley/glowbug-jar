@@ -8,10 +8,11 @@ import { GlowbugKindArray } from './components/Glowbug/utils'
 import useLocalStorage from './hooks/useLocalStorage'
 import Stats from './components/Stats'
 import NavigationBar from './components/NavigationBar'
+import { useSettingsContext } from './components/Settings/SettingsContext'
 
 function App() {
   const [bugs, setBugs, clearBugs] = useLocalStorage<Glowbug[]>('glowbugs', [])
-  const goal = 20
+  const { goal } = useSettingsContext()
   const addBug = useCallback(
     (bug: Glowbug) => {
       setBugs([...bugs, bug])
