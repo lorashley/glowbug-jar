@@ -1,5 +1,5 @@
 import { Flex, Span } from '@chakra-ui/react'
-import { GlowbugKindArray } from './Glowbug/utils'
+import { getGlowbugColor, GlowbugKindArray } from './Glowbug/utils'
 import { Glowbug, GlowbugKind } from './Glowbug/types'
 import { FaPlusCircle } from 'react-icons/fa'
 import { v4 as uuidv4 } from 'uuid'
@@ -33,8 +33,10 @@ const AddBugs = ({ addBug }: Props) => {
           key={kind}
         >
           <FaPlusCircle />{' '}
-          <Span display={{ base: 'block', smDown: 'none' }}>Add</Span>{' '}
-          {formattedName(kind)}bug
+          <Span display={{ base: 'block', smDown: 'none' }}>Add</Span>
+          <div>
+            <Span color={getGlowbugColor(kind)}>{formattedName(kind)}</Span>bug
+          </div>
         </StyledButton>
       ))}
     </Flex>

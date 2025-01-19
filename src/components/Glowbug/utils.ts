@@ -21,9 +21,9 @@ export const getGlowbugColor = (kind?: GlowbugKind) => {
     case GlowbugKind.LOVE:
       return baseColors.warmPink
     case GlowbugKind.POTTY:
-      return baseColors.warmYellow
+      return baseColors.appGreen
     case GlowbugKind.STAR:
-      return baseColors.lightYellow
+      return baseColors.warmYellow
     default:
       return baseColors.appBlue
   }
