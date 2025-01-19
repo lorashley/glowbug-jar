@@ -48,6 +48,7 @@ export const theme = {
     },
   },
   fonts: {
+    body: 'Balsamiq Sans, Roboto, sans-serif',
     heading: 'Balsamiq Sans, Roboto, sans-serif',
   },
 }
