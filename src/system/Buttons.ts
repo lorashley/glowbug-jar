@@ -6,7 +6,7 @@ export const BaseButton = styled(Button)`
 `
 
 export const StyledButton = styled(BaseButton)<{
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'warning'
   spanColor?: string
 }>`
   background-color: ${({ theme, variant }) =>

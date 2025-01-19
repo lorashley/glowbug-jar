@@ -41,6 +41,11 @@ export const theme = {
       color: baseColors.offWhite,
       fontWeight: 'bold',
     },
+    warning: {
+      backgroundColor: baseColors.red,
+      color: baseColors.white,
+      fontWeight: 'bold',
+    },
   },
   fonts: {
     heading: 'Rum Raisin, Roboto, sans-serif',
