@@ -44,7 +44,12 @@ const Settings = () => {
         </DialogTrigger>
         <DialogContent backgroundColor={theme.colors.background}>
           <DialogHeader>
-            <DialogTitle color={theme.colors.darkText}>{title}</DialogTitle>
+            <DialogTitle
+              color={theme.colors.darkText}
+              fontFamily={theme.fonts.heading}
+            >
+              {title}
+            </DialogTitle>
           </DialogHeader>
           <DialogBody color={theme.colors.darkText}>
             <Field
