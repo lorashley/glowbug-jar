@@ -3,12 +3,22 @@ import { theme } from '@/system/theme'
 import { Flex } from '@chakra-ui/react'
 import NavBarContainer from './NavContainer'
 import Settings from '../Settings'
+import { SecondaryButton } from '@/system/Buttons'
 
-const NavigationBar = ({ ...props }: React.ComponentProps<typeof Flex>) => {
+type Props = {
+  clearBugs: () => void
+  canReleaseBugs: boolean
+} & React.ComponentProps<typeof Flex>
+const NavigationBar = ({ clearBugs, canReleaseBugs, ...props }: Props) => {
   return (
     <NavBarContainer {...props}>
       <H1 color={theme.colors.tertiary}>Glowbugs</H1>
-      <Settings />
+      <Flex gap={4}>
+        <SecondaryButton onClick={clearBugs} disabled={!canReleaseBugs}>
+          Release the bugs
+        </SecondaryButton>
+        <Settings />
+      </Flex>
     </NavBarContainer>
   )
 }

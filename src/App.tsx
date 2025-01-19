@@ -7,7 +7,6 @@ import { ButtonsOuter, Outer } from './styled'
 import { GlowbugKindArray } from './components/Glowbug/utils'
 import useLocalStorage from './hooks/useLocalStorage'
 import Stats from './components/Stats'
-import { SecondaryButton } from './system/Buttons'
 import NavigationBar from './components/NavigationBar'
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
 
   return (
     <Outer>
-      <NavigationBar />
+      <NavigationBar clearBugs={clearBugs} canReleaseBugs={bugsCount > 0} />
       <Jar bugs={bugs} removeBug={removeBug} />
       <ButtonsOuter>
         {' '}
@@ -39,11 +38,6 @@ function App() {
           <AddBugButton key={kind} addBug={addBug} kind={kind} />
         ))}
       </ButtonsOuter>
-
-      <SecondaryButton onClick={clearBugs} disabled={bugsCount === 0}>
-        Release the bugs
-      </SecondaryButton>
-
       <Stats bugsCount={bugsCount} goal={goal} />
     </Outer>
   )
