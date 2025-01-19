@@ -15,11 +15,19 @@ import { PrimaryButton } from '@/system/Buttons'
 import { Button } from '../ui/button'
 import { NumberInputField, NumberInputRoot } from '../ui/number-input'
 import { Field } from '../ui/field'
+import { useCallback, useState } from 'react'
 import { useSettingsContext } from './SettingsContext'
 
 const Settings = () => {
   const { goal, setGoal } = useSettingsContext()
   const title = 'Settings'
+
+  const [formGoal, setFormGoal] = useState(goal)
+
+  const onSave = useCallback(() => {
+    setGoal(formGoal)
+  }, [formGoal, setGoal])
+
   return (
     <HStack>
       <DialogRoot size={'md'}>
@@ -36,9 +44,14 @@ const Settings = () => {
           <DialogBody>
             <Field
               label="Enter Glowbug Goal"
-              helperText="Enter a number between 10 and 100"
+              helperText="Enter a number between 10 and 100, default is 10"
             >
-              <NumberInputRoot defaultValue="10" min={10} max={100}>
+              <NumberInputRoot
+                defaultValue={formGoal.toString()}
+                min={10}
+                max={100}
+                onValueChange={(details) => setFormGoal(details.valueAsNumber)}
+              >
                 <NumberInputField />
               </NumberInputRoot>
             </Field>
@@ -46,7 +59,7 @@ const Settings = () => {
               <DialogActionTrigger asChild>
                 <Button variant="outline">Cancel</Button>
               </DialogActionTrigger>
-              <Button>Save</Button>
+              <Button onClick={onSave}>Save</Button>
             </DialogFooter>
             <DialogCloseTrigger />
           </DialogBody>
