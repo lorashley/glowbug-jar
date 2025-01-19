@@ -10,6 +10,7 @@ import NavigationBar from './components/NavigationBar'
 import { Flex } from '@chakra-ui/react'
 import { theme } from './system/theme'
 import { useSettingsContext } from './components/Settings/SettingsContext'
+import Footer from './components/Footer'
 
 function App() {
   const [bugs, setBugs, clearBugs] = useLocalStorage<Glowbug[]>('glowbugs', [])
@@ -55,6 +56,7 @@ function App() {
         ))}
       </Flex>
       <Stats bugsCount={bugsCount} goal={goal} />
+      <Footer />
     </Flex>
   )
 }

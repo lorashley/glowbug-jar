@@ -16,7 +16,7 @@ const NavigationBar = ({ clearBugs, canReleaseBugs, ...props }: Props) => {
       <H1 color={theme.colors.tertiary}>Glowbugs</H1>
       <Flex
         gap={{ base: 8, mdDown: 2 }}
-        flexDir={{ base: 'row', smDown: 'column' }}
+        flexDir={{ base: 'row', smDown: 'column-reverse' }}
         alignItems={'center'}
       >
         <StyledButton
