@@ -2,12 +2,13 @@ import { useCallback } from 'react'
 import Jar from './components/Jar'
 import AddBugButton from './components/AddBugButton'
 import { Glowbug } from './components/Glowbug/types'
-import { ButtonsOuter, Outer } from './styled'
 
 import { GlowbugKindArray } from './components/Glowbug/utils'
 import useLocalStorage from './hooks/useLocalStorage'
 import Stats from './components/Stats'
 import NavigationBar from './components/NavigationBar'
+import { Flex } from '@chakra-ui/react'
+import { theme } from './system/theme'
 import { useSettingsContext } from './components/Settings/SettingsContext'
 
 function App() {
@@ -30,17 +31,25 @@ function App() {
   const bugsCount = bugs.length
 
   return (
-    <Outer>
+    <Flex
+      direction="column"
+      align="center"
+      justify="center"
+      h="100vh"
+      w="100vw"
+      backgroundColor={theme.colors.background}
+      gap={10}
+      padding={10}
+    >
       <NavigationBar clearBugs={clearBugs} canReleaseBugs={bugsCount > 0} />
       <Jar bugs={bugs} removeBug={removeBug} />
-      <ButtonsOuter>
-        {' '}
+      <Flex gap={10}>
         {GlowbugKindArray.map((kind) => (
           <AddBugButton key={kind} addBug={addBug} kind={kind} />
         ))}
-      </ButtonsOuter>
+      </Flex>
       <Stats bugsCount={bugsCount} goal={goal} />
-    </Outer>
+    </Flex>
   )
 }
 

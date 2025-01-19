@@ -11,7 +11,7 @@ const NavBarContainer = ({ children, ...props }: Props) => {
       align="center"
       justify={{
         base: 'space-between',
-        smDown: 'center',
+        mdDown: 'center',
       }}
       wrap="wrap"
       w="100%"
