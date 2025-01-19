@@ -1,8 +1,9 @@
 import { Heading, HeadingProps } from '@chakra-ui/react'
+import { theme } from './theme'
 
 // Define shortcut components
 export const H1 = (props: HeadingProps) => (
-  <Heading size="5xl" {...props} fontFamily={'Rum Raisin, Arial, sans-serif'} />
+  <Heading size="5xl" {...props} fontFamily={theme.fonts.heading} />
 )
 export const H2 = (props: HeadingProps) => <Heading size="3xl" {...props} />
 export const H3 = (props: HeadingProps) => <Heading size="2xl" {...props} />

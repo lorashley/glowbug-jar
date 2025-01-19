@@ -1,5 +1,5 @@
 import { baseColors } from './colors'
-import '@fontsource/rum-raisin/400.css'
+import '@fontsource/balsamiq-sans/400.css'
 
 export const theme = {
   colors: {
@@ -48,6 +48,6 @@ export const theme = {
     },
   },
   fonts: {
-    heading: 'Rum Raisin, Roboto, sans-serif',
+    heading: 'Balsamiq Sans, Roboto, sans-serif',
   },
 }
