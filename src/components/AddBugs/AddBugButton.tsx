@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { Glowbug, GlowbugKind } from './Glowbug/types'
+import { Glowbug, GlowbugKind } from '../Glowbug/types'
 import { v4 as uuidv4 } from 'uuid'
 import React from 'react'
 import { HStack } from '@chakra-ui/react'
