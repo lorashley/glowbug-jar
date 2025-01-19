@@ -4,6 +4,7 @@ import { Flex } from '@chakra-ui/react'
 import NavBarContainer from './NavContainer'
 import Settings from '../Settings'
 import { StyledButton } from '@/system/Buttons'
+import { FaTrashCanArrowUp } from 'react-icons/fa6'
 
 type Props = {
   clearBugs: () => void
@@ -19,6 +20,7 @@ const NavigationBar = ({ clearBugs, canReleaseBugs, ...props }: Props) => {
           onClick={clearBugs}
           disabled={!canReleaseBugs}
         >
+          <FaTrashCanArrowUp />
           Release the bugs
         </StyledButton>
         <Settings />

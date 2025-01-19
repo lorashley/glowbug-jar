@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import React from 'react'
 import { HStack } from '@chakra-ui/react'
 import { StyledButton } from '@/system/Buttons'
+import { FaPlusCircle } from 'react-icons/fa'
 
 type Props = {
   addBug: (bug: Glowbug) => void
@@ -22,7 +23,7 @@ function AddBugButton({ addBug, kind = GlowbugKind.STAR }: Props) {
   return (
     <HStack>
       <StyledButton variant={'primary'} onClick={onButtonClick}>
-        Add {formattedName}bug
+        <FaPlusCircle /> Add {formattedName}bug
       </StyledButton>
     </HStack>
   )

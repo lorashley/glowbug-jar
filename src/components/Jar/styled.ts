@@ -8,7 +8,8 @@ export const Outer = styled.div`
   position: relative;
   width: ${JAR_WIDTH}px;
   height: ${JAR_HEIGHT}px;
-  border-radius: 20%; // Makes it look like a jar
+  margin: 10px;
+  border-radius: 20%;
   overflow: hidden; // Ensures fireflies don't escape
 `
 
