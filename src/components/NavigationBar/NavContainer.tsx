@@ -15,8 +15,14 @@ const NavBarContainer = ({ children, ...props }: Props) => {
       }}
       wrap="wrap"
       w="100%"
-      p={8}
-      gap={10}
+      p={{
+        base: 4,
+        mdDown: 2,
+      }}
+      gap={{
+        base: 8,
+        mdDown: 2,
+      }}
       bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
       color={['white', 'white', 'primary.700', 'primary.700']}
       {...props}

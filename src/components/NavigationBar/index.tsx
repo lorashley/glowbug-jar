@@ -14,7 +14,11 @@ const NavigationBar = ({ clearBugs, canReleaseBugs, ...props }: Props) => {
   return (
     <NavBarContainer {...props}>
       <H1 color={theme.colors.tertiary}>Glowbugs</H1>
-      <Flex gap={4}>
+      <Flex
+        gap={{ base: 8, mdDown: 2 }}
+        flexDir={{ base: 'row', smDown: 'column' }}
+        alignItems={'center'}
+      >
         <StyledButton
           variant={'secondary'}
           onClick={clearBugs}

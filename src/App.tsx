@@ -38,12 +38,18 @@ function App() {
       h="100vh"
       w="100vw"
       backgroundColor={theme.colors.background}
-      gap={10}
+      gap={{
+        base: 8,
+        smDown: 2,
+      }}
       padding={10}
     >
       <NavigationBar clearBugs={clearBugs} canReleaseBugs={bugsCount > 0} />
       <Jar bugs={bugs} removeBug={removeBug} />
-      <Flex gap={10}>
+      <Flex
+        gap={{ base: 8, smDown: 2 }}
+        flexDir={{ base: 'row', smDown: 'column' }}
+      >
         {GlowbugKindArray.map((kind) => (
           <AddBugButton key={kind} addBug={addBug} kind={kind} />
         ))}
