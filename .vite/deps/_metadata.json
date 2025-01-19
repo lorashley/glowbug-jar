@@ -1,0 +1,91 @@
+{
+  "hash": "6ad7cd8f",
+  "configHash": "c27a8cee",
+  "lockfileHash": "d4381826",
+  "browserHash": "319d9492",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "38443235",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "4880b0ed",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "cd4f54fa",
+      "needsInterop": true
+    },
+    "styled-components": {
+      "src": "../../node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "styled-components.js",
+      "fileHash": "74162c13",
+      "needsInterop": false
+    },
+    "uuid": {
+      "src": "../../node_modules/uuid/dist/esm-browser/index.js",
+      "file": "uuid.js",
+      "fileHash": "2293d413",
+      "needsInterop": false
+    },
+    "@chakra-ui/react": {
+      "src": "../../node_modules/@chakra-ui/react/dist/esm/index.js",
+      "file": "@chakra-ui_react.js",
+      "fileHash": "896b2c1b",
+      "needsInterop": false
+    },
+    "@chakra-ui/react/box": {
+      "src": "../../node_modules/@chakra-ui/react/dist/esm/components/box/index.js",
+      "file": "@chakra-ui_react_box.js",
+      "fileHash": "f7fc8d4c",
+      "needsInterop": false
+    },
+    "@chakra-ui/react/flex": {
+      "src": "../../node_modules/@chakra-ui/react/dist/esm/components/flex/index.js",
+      "file": "@chakra-ui_react_flex.js",
+      "fileHash": "16c4fbfa",
+      "needsInterop": false
+    },
+    "react-icons/io5": {
+      "src": "../../node_modules/react-icons/io5/index.mjs",
+      "file": "react-icons_io5.js",
+      "fileHash": "f755271d",
+      "needsInterop": false
+    },
+    "react-icons/hi": {
+      "src": "../../node_modules/react-icons/hi/index.mjs",
+      "file": "react-icons_hi.js",
+      "fileHash": "5250b83f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-QVXJH6VV": {
+      "file": "chunk-QVXJH6VV.js"
+    },
+    "chunk-V2X5ZORR": {
+      "file": "chunk-V2X5ZORR.js"
+    },
+    "chunk-NZFUKNDN": {
+      "file": "chunk-NZFUKNDN.js"
+    },
+    "chunk-NBSQQTHK": {
+      "file": "chunk-NBSQQTHK.js"
+    },
+    "chunk-AVABL33S": {
+      "file": "chunk-AVABL33S.js"
+    },
+    "chunk-32E4H3EV": {
+      "file": "chunk-32E4H3EV.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}
