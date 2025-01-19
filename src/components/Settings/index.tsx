@@ -1,5 +1,5 @@
 import { IoSettingsSharp } from 'react-icons/io5'
-import { HStack } from '@chakra-ui/react'
+import { Flex, HStack } from '@chakra-ui/react'
 import {
   DialogActionTrigger,
   DialogBody,
@@ -14,16 +14,20 @@ import {
 import { StyledButton } from '@/system/Buttons'
 import { NumberInputField, NumberInputRoot } from '../ui/number-input'
 import { Field } from '../ui/field'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useSettingsContext } from './SettingsContext'
 import { useTheme } from 'styled-components'
 
 const Settings = () => {
   const theme = useTheme()
-  const { goal, setGoal } = useSettingsContext()
+  const { goal, setGoal, clearSettings } = useSettingsContext()
   const title = 'Settings'
 
   const [formGoal, setFormGoal] = useState(goal)
+
+  useEffect(() => {
+    setFormGoal(goal)
+  }, [goal])
 
   const onSave = useCallback(() => {
     setGoal(formGoal)
@@ -56,13 +60,22 @@ const Settings = () => {
                 <NumberInputField />
               </NumberInputRoot>
             </Field>
-            <DialogFooter>
-              <DialogActionTrigger asChild>
-                <StyledButton variant="secondary">Cancel</StyledButton>
-              </DialogActionTrigger>
-              <DialogActionTrigger asChild>
-                <StyledButton onClick={onSave}>Save</StyledButton>
-              </DialogActionTrigger>
+            <DialogFooter paddingX={0} mt={10} justifyContent={'space-between'}>
+              <div>
+                <DialogActionTrigger asChild>
+                  <StyledButton variant="warning" onClick={clearSettings}>
+                    Reset Settings
+                  </StyledButton>
+                </DialogActionTrigger>
+              </div>
+              <Flex gap={4}>
+                <DialogActionTrigger asChild>
+                  <StyledButton variant="secondary">Cancel</StyledButton>
+                </DialogActionTrigger>
+                <DialogActionTrigger asChild>
+                  <StyledButton onClick={onSave}>Save</StyledButton>
+                </DialogActionTrigger>
+              </Flex>
             </DialogFooter>
             <DialogCloseTrigger />
           </DialogBody>
