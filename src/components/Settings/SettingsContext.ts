@@ -8,6 +8,12 @@ const SettingsContext = createContext<SettingsContextValue>({
   setGoal: (goal: number) => {
     throw new Error(`SettingsContext not implemented setGoal: ${goal}`)
   },
+  isChildlockOn: false,
+  setChildlock: (isChildlockOn: boolean) => {
+    throw new Error(
+      `SettingsContext not implemented setChildlock: ${isChildlockOn}`
+    )
+  },
   clearSettings: () => {
     throw new Error('SettingsContext not implemented')
   },

@@ -10,7 +10,7 @@ import AddBugs from './components/AddBugs'
 import useBugs from './hooks/useBugs'
 
 function App() {
-  const { goal } = useSettingsContext()
+  const { goal, isChildlockOn } = useSettingsContext()
   const { bugs, addBug, removeBug, clearBugs, bugsCount } = useBugs()
 
   return (
@@ -27,9 +27,13 @@ function App() {
       }}
       padding={10}
     >
-      <NavigationBar clearBugs={clearBugs} canReleaseBugs={bugsCount > 0} />
+      <NavigationBar
+        clearBugs={clearBugs}
+        canReleaseBugs={bugsCount > 0}
+        isChildlockOn={isChildlockOn}
+      />
       <Jar bugs={bugs} removeBug={removeBug} />
-      <AddBugs addBug={addBug} />
+      {!isChildlockOn && <AddBugs addBug={addBug} />}
       <Stats bugsCount={bugsCount} goal={goal} />
       <Footer />
     </Flex>
