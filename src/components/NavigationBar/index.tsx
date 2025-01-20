@@ -3,7 +3,7 @@ import NavBarContainer from './NavContainer'
 import Settings from '../Settings'
 import { StyledButton } from '@/system/Buttons'
 import { FaTrashCanArrowUp } from 'react-icons/fa6'
-import ChildlockSwitch from './ChildlockSwitch'
+import ChildlockSwitch from '../Childlock/ChildlockSwitch'
 
 type Props = {
   clearBugs: () => void
