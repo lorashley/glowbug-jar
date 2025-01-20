@@ -9,10 +9,10 @@ type MathProblem = {
 
 const useGenerateMathProblem = () => {
   const [mathProblem, setMathProblem] = useState<MathProblem>({
-    firstNumber: 0,
-    secondNumber: 0,
+    firstNumber: 2,
+    secondNumber: 3,
     operator: '+',
-    result: 0,
+    result: 5,
   })
 
   const generateMathProblem = () => {
