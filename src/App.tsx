@@ -32,7 +32,7 @@ function App() {
         canReleaseBugs={bugsCount > 0}
         isChildlockOn={isChildlockOn}
       />
-      <Jar bugs={bugs} removeBug={removeBug} />
+      <Jar bugs={bugs} removeBug={!isChildlockOn ? removeBug : undefined} />
       {!isChildlockOn && <AddBugs addBug={addBug} />}
       <Stats bugsCount={bugsCount} goal={goal} />
       <Footer />
