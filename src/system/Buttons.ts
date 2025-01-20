@@ -20,7 +20,7 @@ export const StyledButton = styled(BaseButton)<{
     color: ${({ theme }) => theme.colors.offWhite};
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: ${({ theme, variant }) =>
       theme.buttons[variant || 'primary'].hoverBackgroundColor};
   }
