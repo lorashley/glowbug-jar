@@ -5,6 +5,7 @@ import {
   getGlowbugColor,
   getRandomCoordinates,
   getRandomDirectionPair,
+  getRandomDuration,
 } from './utils'
 
 type Props = {
@@ -16,6 +17,7 @@ const Glowbug = ({ bug, onClick }: Props) => {
   const [x, y] = useMemo(() => getRandomCoordinates(), [bug.id])
   const [xPath, yPath] = useMemo(() => getRandomDirectionPair(), [bug.id])
   const color = useMemo(() => getGlowbugColor(bug.kind), [bug.kind])
+  const duration = useMemo(() => getRandomDuration(), [bug.id])
   return (
     <GlowingBug
       $uniqueId={bug.id}
@@ -25,6 +27,7 @@ const Glowbug = ({ bug, onClick }: Props) => {
       $randomY={y}
       $xPath={xPath}
       $yPath={yPath}
+      $duration={duration}
       onClick={onClick}
     />
   )

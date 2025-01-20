@@ -8,6 +8,7 @@ export const GlowingBug = styled.div<{
   $randomY: number
   $xPath: number
   $yPath: number
+  $duration?: number
 }>`
   position: absolute; /* Absolute positioning for random movement */
   top: ${({ $randomY }) => `${$randomY}px`};
@@ -56,8 +57,8 @@ export const GlowingBug = styled.div<{
       border-radius: 50%; /* Ensures a perfect circle */
     `}
 
-  animation: ${({ $uniqueId }) =>
-    `floating-${$uniqueId} 10s infinite ease-in-out, glow-${$uniqueId} 1.5s infinite ease-in-out`};
+  animation: ${({ $uniqueId, $duration }) =>
+    `floating-${$uniqueId} ${$duration}s infinite ease-in-out, glow-${$uniqueId} ${$duration}s infinite ease-in-out`};
 
   ${({ $color, $uniqueId, $xPath, $yPath }) => `
     @keyframes glow-${$uniqueId} {

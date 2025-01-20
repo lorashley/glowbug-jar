@@ -3,13 +3,18 @@ import { JAR_WIDTH, JAR_HEIGHT } from '../Jar/styled'
 import { GlowbugKind } from './types'
 
 export const getRandomCoordinates = () => {
-  const randomX = Math.random() * (JAR_WIDTH - 30) // Random X within jar width
-  const randomY = Math.random() * (JAR_HEIGHT - 30) // Random Y within jar height
+  const padding = 30 // Maximum translate distance from animation
+  const randomX = Math.random() * (JAR_WIDTH - padding * 2) + padding // Ensures bugs start within safe bounds
+  const randomY = Math.random() * (JAR_HEIGHT - padding * 2) + padding
   return [randomX, randomY]
 }
 
 const getRandomDirection = () => {
   return Math.random() < 0.5 ? 1 : -1 // Randomly chooses left/right or up/down direction
+}
+
+export const getRandomDuration = () => {
+  return Math.random() * 10 + Math.random() * 10
 }
 
 export const getRandomDirectionPair = () => {
