@@ -19,4 +19,9 @@ export const StyledButton = styled(BaseButton)<{
     background-color: ${({ theme }) => theme.colors.tan};
     color: ${({ theme }) => theme.colors.offWhite};
   }
+
+  &:hover {
+    background-color: ${({ theme, variant }) =>
+      theme.buttons[variant || 'primary'].hoverBackgroundColor};
+  }
 `

@@ -39,7 +39,6 @@ const Settings = () => {
         <DialogTrigger asChild>
           <StyledButton variant="primary">
             <IoSettingsSharp />
-            {title}
           </StyledButton>
         </DialogTrigger>
         <DialogContent backgroundColor={theme.colors.background}>

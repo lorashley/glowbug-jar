@@ -1,5 +1,6 @@
 export const baseColors = {
-  red: '#FF544A',
+  notificationRed: '#FF544A',
+  appRed: '#FC736D',
   white: '#FFFFFF',
   black: '#000000',
   offWhite: '#FFFFF7',
