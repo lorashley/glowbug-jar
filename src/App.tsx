@@ -3,16 +3,18 @@ import Jar from './components/Jar'
 import Stats from './components/Stats'
 import NavigationBar from './components/NavigationBar'
 import { Flex } from '@chakra-ui/react'
-import { theme } from './system/theme'
 import { useSettingsContext } from './components/Settings/SettingsContext'
 import Footer from './components/Footer'
 import AddBugs from './components/AddBugs'
 import useBugs from './hooks/useBugs'
+import ConfettiExplosion from 'react-confetti-explosion'
+import { baseColors } from './system/colors'
+import { useTheme } from 'styled-components'
 
 function App() {
   const { goal, isChildlockOn } = useSettingsContext()
   const { bugs, addBug, removeBug, clearBugs, bugsCount } = useBugs()
-
+  const theme = useTheme()
   return (
     <Flex
       direction="column"
@@ -27,6 +29,20 @@ function App() {
       }}
       padding={10}
     >
+      {bugsCount >= goal && (
+        <ConfettiExplosion
+          colors={[
+            baseColors.appBlue,
+            baseColors.appGreen,
+            baseColors.appYellow,
+            baseColors.appRed,
+            baseColors.appOrange,
+            baseColors.appPink,
+            baseColors.appTeal,
+          ]}
+          duration={3000}
+        />
+      )}
       <NavigationBar
         clearBugs={clearBugs}
         canReleaseBugs={bugsCount > 0}
